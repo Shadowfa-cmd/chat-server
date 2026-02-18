@@ -11,7 +11,7 @@ socketio = SocketIO(app, cors_allowed_origins="*")
 
 @app.route("/")
 def home():
-    return render_template("chat.html")
+    return render_template("chat_secure.html")
 
 @socketio.on("message")
 def handle_message(msg):
