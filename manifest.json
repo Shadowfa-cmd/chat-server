@@ -1,0 +1,21 @@
+{
+  "background_color": "rgb(17, 17, 17)",
+  "dir": "ltr",
+  "display": "standalone",
+  "name": "Shadow Chat",
+  "orientation": "any",
+  "scope": "/",
+  "short_name": "Shadow",
+  "start_url": "/",
+  "theme_color": "rgb(0, 255, 0)",
+  "description": "A dark mode global chat with username and password.",
+  "id": "chat-shadow-app",
+  "icons": [
+    {
+      "src": "/icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any"
+    }
+  ]
+}
