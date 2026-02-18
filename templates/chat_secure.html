@@ -4,6 +4,10 @@
 <meta charset="UTF-8">
 <title>Shadow Chat</title>
 <script src="https://cdn.socket.io/4.0.0/socket.io.min.js"></script>
+
+<!-- لینک manifest برای PWA -->
+<link rel="manifest" href="/manifest.json">
+
 <style>
     body {
         background-color: #111;
@@ -96,7 +100,7 @@
 const SOCKET_SERVER = '/';
 const sio = io(SOCKET_SERVER);
 
-// بررسی ذخیره یک بار ثبت نام
+// ثبت یک بار یوزرنیم
 let savedUser = localStorage.getItem('chatUser');
 if(savedUser){
     document.getElementById('login').style.display='none';
@@ -141,6 +145,13 @@ function sendMessage(){
     const msg = `${user}: ${input.value}`;
     sio.send(msg);
     input.value = '';
+}
+
+// ثبت Service Worker برای PWA
+if ('serviceWorker' in navigator) {
+    navigator.serviceWorker.register('/sw.js').then(() => {
+        console.log('Service Worker registered.');
+    });
 }
 </script>
 </body>
