@@ -2,7 +2,7 @@ import eventlet
 eventlet.monkey_patch()
 
 import os
-from flask import Flask
+from flask import Flask, render_template
 from flask_socketio import SocketIO, send
 
 app = Flask(__name__)
@@ -11,7 +11,7 @@ socketio = SocketIO(app, cors_allowed_origins="*")
 
 @app.route("/")
 def home():
-    return "Chat Server is Running!"
+    return render_template("chat.html")
 
 @socketio.on("message")
 def handle_message(msg):
